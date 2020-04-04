@@ -1,0 +1,3 @@
+-- INSERT INTO inventory (product_name, product_category, product_description, quantity_in_stock) VALUES ("Hand Sanitizer", "Personal Higiene", "Alcohol in Gel", 10);
+-- INSERT INTO inventory (product_name, product_category, product_description, quantity_in_stock) VALUES("Toilet Paper", "Personal Higiene", "Tissues", 30); 
+-- INSERT INTO inventory (product_name, product_category, product_description, quantity_in_stock) VALUES("Face Masks", "Protection", "Approved masks", 40); 
