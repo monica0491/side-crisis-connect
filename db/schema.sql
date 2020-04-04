@@ -1,14 +1,16 @@
-CREATE DATABASE crisis_db;
+CREATE DATABASE crisisconnect_db;
 
-USE crisis_db;
+USE crisisconnect_db;
 
 CREATE TABLE group_table
 (
 	group_id int NOT NULL AUTO_INCREMENT,
 	group_name varchar(255) NOT NULL,
    	admin_id int NOT NULL,
+	group_members int NOT NUll,
 	PRIMARY KEY (group_id),
-    FOREIGN KEY (admin_id) REFERENCES profile_indiv (id)
+    FOREIGN KEY (admin_id) REFERENCES profile_indiv (id),
+	FOREIGN KEY (group_members) REFERENCES profile_indiv (id)
 );
 
 CREATE TABLE profile_indiv
