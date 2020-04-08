@@ -53,13 +53,24 @@ module.exports = function(app) {
 
   //Groups API Routes
 
-  app.get("/api/group", function(req, res){
+
+  app.get("/groups", function(req, res){
     db.Group.findAll({}).then(function(group){
       res.json(group);
     })
   })
+
+  // app.get("/group", function(req, res) {
+  //   cd.Group.all({}).then(function(data) {
+  //     var groupsObj = {
+  //       groups: data
+  //     };
+  //     console.log(groupsObj);
+  //     res.render("manageGroup", groupsObj);
+  //   });
+  // });
   
-  app.post("/api/group", function(req, res){
+  app.post("/groups", function(req, res){
     db.Group.create({
       group_name: req.body.group_name,
       admin_id: req.body.admin_id
@@ -68,7 +79,7 @@ module.exports = function(app) {
     })
   })
 
-  app.put("/api/group", function(req, res){
+  app.put("/groups", function(req, res){
     db.Group.update({
       group_name: req.body.group_name,
       admin_id: req.body.admin_id
@@ -82,7 +93,7 @@ module.exports = function(app) {
     })
   })
 
-  app.delete("/api/group", function(req, res){
+  app.delete("/groups", function(req, res){
     db.Group.destroy({
       where: {
         id: req.body.id

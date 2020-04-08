@@ -1,0 +1,13 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+body {
+  background-color: lightblue;
+}
+
+main-title {
+  color:red;
+  text-align: center;
+}

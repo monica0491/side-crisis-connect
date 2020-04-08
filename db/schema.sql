@@ -2,35 +2,31 @@ CREATE DATABASE crisisconnect_db;
 
 USE crisisconnect_db;
 
-CREATE TABLE group_table
-(
-	group_id int NOT NULL AUTO_INCREMENT,
-	group_name varchar(255) NOT NULL,
-   	admin_id int NOT NULL,
-	group_members int NOT NUll,
-	PRIMARY KEY (group_id),
-    FOREIGN KEY (admin_id) REFERENCES profile_indiv (id),
-	FOREIGN KEY (group_members) REFERENCES profile_indiv (id)
-);
-
 CREATE TABLE profile_indiv
 (
 	id int NOT NULL AUTO_INCREMENT,
-	firstName varchar(255) NOT NULL,
-	lastName varchar(255) NOT NULL,
-    email varchar(255) NOT NULL,
+	username varchar(255) NOT NULL,
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE inventory
+
+CREATE TABLE groups_table
 (
 	id int NOT NULL AUTO_INCREMENT,
-	product_owner int (40) NOT NULL,
-	product_name VARCHAR (255) NOT NULL,
-    product_category VARCHAR (40) NOT NULL,
-    product_description VARCHAR (300) NOT NULL,
-    quantity_in_stock VARCHAR (300) NOT NULL,
+	group_name varchar(255) NOT NULL,
+   	admin_id int NOT NULL,
 	PRIMARY KEY (id),
-	FOREIGN KEY (product_owner) REFERENCES profile_indiv (id)
+    FOREIGN KEY (admin_id) REFERENCES profile_indiv (id)
 );
 
+CREATE TABLE inventory_table
+(
+	id int NOT NULL AUTO_INCREMENT,
+	product_owner_id int NOT NULL,
+	product_name VARCHAR (255) NOT NULL,
+    quantity_in_stock VARCHAR (300) NOT NULL,
+	group_id INT NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (product_owner_id) REFERENCES profile_indiv (id),
+	FOREIGN KEY (group_id) REFERENCES groups_table (id)
+);
