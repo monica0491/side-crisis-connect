@@ -1,19 +1,18 @@
 
 // $(document).ready(function(){
     //Reference to the input field where the user adds a new group
-    var $newGroup = $(".new-group");
-    var $groupContainer = $(".group-container");
+    const $newGroup = $(".new-group");
+    const $groupContainer = $(".group-container");
     
     //Adding event listeners for inserting, deleting and joining a Group
     $(document).on("click", "#group-form", addGroup);
     $(document).on("click", "button.delete", deleteGroup);
     $(document).on("click", "button.join", joinGroup);
-    
     $(document).on("click", "#current-group-btn", getGroups);
     
     
     //Initial groups array
-    var groups = [];
+    let groups = [];
     
     // //Getting groups from DB when page loads
     // getGroups();
@@ -21,15 +20,15 @@
     function initializeRows(){
         $groupContainer.empty();
         var groupsToAdd = [];
-        for (var i = 0; i < groups.length; i++){
+        for (let i = 0; i < groups.length; i++){
             groupsToAdd.push(createNewGroup(groups[i]));
         }
         $groupContainer.prepend(groupsToAdd);
     }
     
     //This function grabs the groups from the db and updates the view.
-    
     function getGroups(){
+        console.log('click test');
         $.get("/group"), function(data){
             groups = data;
             initializeRows();
@@ -39,7 +38,7 @@
     //AddGroup handles when the user clicks the "Add a group" button and creates a new group.
     function addGroup(){
         event.preventDefault();
-        var group = {
+        const group = {
             group_name: $newGroup,
             group_admin: $("#admin").val().trim()
         };
@@ -53,7 +52,7 @@
     
     function deleteGroup(){
         event.stopPropagation();
-        var id= $("this").data("id");
+        const id= $("this").data("id");
         $ajax({
             method: "DELETE",
             url: "/group" + id
@@ -65,7 +64,7 @@
         event.preventDefault();
         $.get("api/group", function(data){
             if (data.length !== 0) {
-            for (var i = 0; i < data.length; i++){
+            for (let i = 0; i < data.length; i++){
                 $ajax({
                     method: "POST",
                     url: "/group" + id
@@ -77,7 +76,7 @@
     
 
     function createNewGroup(group) {
-        var $newGroup = $(
+        const $newGroup = $(
           [
             "<li class='list-group-item todo-item'>",
             "<span>",
