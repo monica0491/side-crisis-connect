@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Inventory = sequelize.define("Inventory", {
+    const Inventory = sequelize.define("Inventory", {
       product_owner: DataTypes.INTEGER,
       product_name: DataTypes.STRING,
       product_category: DataTypes.STRING,
