@@ -11,3 +11,52 @@ main-title {
   color:red;
   text-align: center;
 }
+
+#all-groups {
+  text-align: center;
+  background-color: red;
+}
+
+button.submit {
+  float: right;
+}
+
+form#cms {
+  margin-top: 50px;
+}
+
+#cms textarea {
+  resize: none;
+}
+
+.card-header button.delete,
+button.edit {
+  float: right;
+  margin: 5px;
+}
+
+.groups-container {
+  margin-top: 50px;
+}
+
+.group-list {
+  margin-top: 25px;
+}
+
+.groups-container {
+  margin-top: 30px;
+}
+
+.blog {
+  margin-top: 30px;
+}
+
+#group-name, #group-invite {
+  width: 100%;
+  height: 35px;
+  margin-top: 5px;
+}
+
+.top-30 {
+  margin-top: 30px;
+}

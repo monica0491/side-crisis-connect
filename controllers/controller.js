@@ -1,5 +1,6 @@
 // Requiring path to so we can use relative routes to our HTML files
 const path = require("path");
+const db = require("../models");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -11,17 +12,40 @@ module.exports = function(app) {
     res.render('index', {});
   });
 
-  app.get("/signup", function(req, res) {
-    res.render('signup', {});
+  app.get("/groups", function(req, res) {
+    res.render('manageGroup', {});
   });
+  
+
+  app.get("/signUp", function(req, res) {
+    res.render('signUp', {});
+  });
+
+  app.get('/inventories', function(req, res) {
+    res.render('inventories', {});
+  })
+
+
+
+
+
 
   // app.get("/groups", function(req, res) {
   //   res.sendFile(path.join(__dirname, "../public/manageGroup.html"));
   // });
 
-  app.get('/groups', function(req, res) {
-    res.render('manageGroup', {});
-  })
+  // app.get('/groups', function(req, res) {
+  //   db.group.findAll({}).then(function(data){
+  //     var groupObj = {
+  //       groups : data
+  //     }
+  //     console.log(groupObj)
+  //   })
+  //   res.render('manageGroup', groupObj);
+  // })
+
+
+
 
   // app.get("/groups", function(req, res) {
   //   group.all(function(data){
@@ -34,11 +58,17 @@ module.exports = function(app) {
   // });
 
   // app.get('/groups', function(req, res) {
-  //   res.render('manageGroup', {});
+  //   // perform a findall w/ the Group model
+  //   var groups = {};
+  //   db.Group.findAll({
+  //     where: groups
+  //   }).then(function(groups) {
+  //   res.render("manageGroup", groups);
   // })
-  app.get('/createGroup', function(req, res) {
-    console.log('blah!!!!!!!!!!!!!!')
-  })
+
+  // app.get('/createGroup', function(req, res) {
+  //   console.log('blah!!!!!!!!!!!!!!')
+  // })
   // app.get('/groups', function(req, res) {
   //   res.render('groups', {});
   // })
@@ -62,4 +92,4 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-};
+  }
