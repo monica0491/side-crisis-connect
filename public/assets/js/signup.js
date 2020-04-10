@@ -1,42 +1,69 @@
 $(document).ready(function() {
-  // Getting references to our form and input
-  const signUpForm = $("form.signup");
-  const emailInput = $("input#email-input");
-  const passwordInput = $("input#password-input");
 
-  // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function(event) {
-    event.preventDefault();
-    const userData = {
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
-    };
-
-    if (!userData.email || !userData.password) {
-      return;
-    }
-    // If we have an email and password, run the signUpUser function
-    signUpUser(userData.email, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
-  });
-
-  // Does a post to the signup route. If successful, we are redirected to the members page
-  // Otherwise we log any errors
-  function signUpUser(email, password) {
-    $.post("/api/signup", {
-      email: email,
-      password: password
+  // add click listener for sign up
+  $('#signUp').on("click", function(e){
+    e.preventDefault();
+    //Get the username input and assign to a variable
+    var userName = $("#username-input").val(); //getter
+    
+    //Pass it to the api to create a new profile_indiv
+      $.post("/api/signUp", {
+      username: userName
     })
-      .then(function(data) {
-        window.location.replace("/members");
-        // If there's an error, handle it by throwing up a bootstrap alert
+    //Redirect to /groups
+      .then(function() {
+        console.log('we made it')
+        window.location.replace("/groups");
+        // If there's an error, log the error
       })
-      .catch(handleLoginErr);
-  }
+      .catch(function(err) {
+        console.log(err);
+      });
+  })
 
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
-  }
+
+
+
+
+
+
+  // // Getting references to our form and inputs
+  // const loginForm = $("#login");
+  // const usernameInput = $("#username-input");
+
+  // $(document).on("submit", "#submit-form-bn", getNext)
+
+  // // When the form is submitted, we validate there's an email and password entered
+  // // loginForm.on("submit", function(event, next) {
+  // //   event.preventDefault();
+  // //   const userData = {
+  // //     username: usernameInput.val().trim(),
+  // //   };
+
+  // //   if (!userData.email) {
+  // //     return;
+  // //   }
+
+  // //   // If we have an email and password we run the loginUser function and clear the form
+  // //   loginUser(userData.username);
+  // //   usernameInput.val("");
+  // // });
+
+  // // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+  // function loginUser(username) {
+  //   $.post("/api/login", {
+  //     username: username
+  //   })
+  //     .then(function() {
+  //       window.location.replace("/groups");
+  //       // If there's an error, log the error
+  //     })
+  //     .catch(function(err) {
+  //       console.log(err);
+  //     });
+  // }
+
+  // function getNext(){
+  //   console.log("next")
+  // }
 });

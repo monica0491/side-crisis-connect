@@ -2,12 +2,15 @@
 
 -- INSERT INTO group_table (group_name, admin_id, group_members) VALUES ("Trilogy", );
 
-INSERT INTO profile_indiv (username) VALUES ('testuser1');
-INSERT INTO profile_indiv (username) VALUES ('testuser2');
-INSERT INTO profile_indiv (username) VALUES ('testuser3');
-INSERT INTO profile_indiv (username) VALUES ('testuser4');
 
-INSERT INTO groups_table (group_name, admin_id) VALUES ('group1', 1);
-INSERT INTO groups_table (group_name, admin_id) VALUES ('group2', 2);
-INSERT INTO groups_table (group_name, admin_id) VALUES ('group3', 3);
-INSERT INTO groups_table (group_name, admin_id) VALUES ('group4', 4);
+INSERT INTO Users (username) VALUES ('Monica');
+INSERT INTO Users (username) VALUES ('Byron');
+INSERT INTO Users (username) VALUES ('Dan');
+
+
+
+
+INSERT INTO Groups (group_name, admin_id) VALUES ('Trilogy', 1);
+INSERT INTO Groups (group_name, admin_id) VALUES ('Chicago', 2);
+INSERT INTO Groups (group_name, admin_id) VALUES ('Coding', 3);
+

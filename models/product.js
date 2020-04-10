@@ -1,11 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
-    const Inventory = sequelize.define("Inventory", {
+    const Product = sequelize.define("Product", {
       product_owner: DataTypes.INTEGER,
       product_name: DataTypes.STRING,
-      product_category: DataTypes.STRING,
-      product_description: DataTypes.STRING,
       quantity_in_stock: DataTypes.STRING,
+      group_id:DataTypes.INTEGER
     });
-    return Inventory;
+    return Product;
   };
   
