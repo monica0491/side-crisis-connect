@@ -31,11 +31,11 @@ Visit localhost:8080
 
 # Technology Used
 
-*Bootstrap
-*Node.js
-*Passport
-*MySQL
-*Sequelize
-*Express Handlebars
-*Express
-*Heroku
+Bootstrap
+Node.js
+Passport
+MySQL
+Sequelize
+Express Handlebars
+Express
+Heroku
