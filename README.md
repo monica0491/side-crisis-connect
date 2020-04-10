@@ -4,9 +4,9 @@
 
 
 # Meet the Team
-Monica Rodriguez
-Vince Napolitano
-Mesut Sipar
+ Monica Rodriguez
+ Vince Napolitano
+ Mesut Sipar
 
 # Link to the app
 
