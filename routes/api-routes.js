@@ -19,16 +19,21 @@ module.exports = function(app) {
 
   //Groups API Routes
 
-  app.get('api/groups', function(req, res) {
+  app.get('/api/groups', function(req, res) {
     // perform a findall w/ the Group model
-    db.Group.findAll({})
+    db.Group.findAll({
+      where:{
+        admin_id: 1
+      }
+    })
     .then(function(groups) {
     res.render("manageGroup", groups);
   })
   })
   
   app.post("/api/groups", function(req, res){
-    db.Group.create({
+    // console.log(req.body)
+  db.Group  .create({
       group_name: req.body.group_name,
       admin_id: req.body.admin_id
     })

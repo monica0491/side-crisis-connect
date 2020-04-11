@@ -2,6 +2,7 @@
 const path = require("path");
 const db = require("../models");
 
+
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
@@ -13,7 +14,12 @@ module.exports = function(app) {
   });
 
   app.get("/groups", function(req, res) {
-    res.render('manageGroup', {});
+    var allGroups = {}
+    db.Group.findAll({}).then(function(dbGroups){
+      console.log(dbGroups)
+      allGroups.group = dbGroups
+    })
+    res.render('manageGroup', allGroups);
   });
   
 

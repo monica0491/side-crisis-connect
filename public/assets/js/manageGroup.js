@@ -1,25 +1,29 @@
 
 $(document).ready(function(){
  
-  var newGroup = $("#group-name").val().trim();
   allGroups = [];
 
-  $.post("/api/groups", {
-    group_name: newGroup,
-    admin_id: 1
-  })
-  .then(function(){
-    getGroups();
-    console.log("hi")
-  })
+  $("#submit-btn").on("click", function(e){
+    e.preventDefault();
+    $.post("/api/groups", {
+      group_name: $("#group-name").val().trim(),
+      admin_id: 1
+    })
+    .then(function(data){
+
+      console.log(data);
+      // getGroups();
+      // console.log("hi")
+    })
+  });
 
 })
 
-function getGroups(){
-  $.get("/api/groups", function(data) {
-    allGroups= data
-  })
-}
+// function getGroups(){
+//   $.get("/api/groups", function(data) {
+//     allGroups= data
+//   })
+// }
 
 
 
