@@ -17,7 +17,7 @@ module.exports = function(app) {
       });
   });
 
-  //Groups API Routes
+  //Groups API Routes blah
 
   app.get('/api/groups', function(req, res) {
     // perform a findall w/ the Group model
